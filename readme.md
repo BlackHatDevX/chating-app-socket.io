@@ -12,6 +12,9 @@
 ## Contact
 
 [Github](https://github.com/BlackHatDevX)
+
 [Telegram](https://telegram.dog/jashgro)
+
 [Linkedin](https://www.linkedin.com/in/jash-gro/)
+
 [Portfolio](https://bit.ly/jashgro)
