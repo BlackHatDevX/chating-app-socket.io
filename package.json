@@ -1,0 +1,23 @@
+{
+  "name": "socket.io",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.18.0",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "socket.io": "^4.7.5",
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.4.0"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.8",
+    "utf-8-validate": "^6.0.3"
+  }
+}

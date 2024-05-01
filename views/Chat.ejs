@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= username %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1>Chatting as <%= username %></h1>
+    <p>Welcome to Chatting Screen</p>
+    <form id="msgForm">
+      <input
+        type="text"
+        id="message"
+        placeholder="Enter Your Message Here"
+        autocomplete="off"
+      />
+      <button type="submit" id="sendBtn">Send</button>
+    </form>
+    <div id="chatbox">
+      <% pastMsgs.forEach(pastMsg => { %>
+      <p><%= pastMsg %></p>
+      <% }) %>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const msgForm = document.getElementById("msgForm");
+      function handleForm(event) {
+        event.preventDefault();
+      }
+      msgForm.addEventListener("submit", handleForm);
+      var socket = io();
+      const sendBtn = document.getElementById("sendBtn");
+      const messageInput = document.getElementById("message");
+      const chatbox = document.getElementById("chatbox");
+      sendBtn.addEventListener("click", (e) => {
+        const message = messageInput.value;
+        socket.emit("user-message", "<%= username %>" + " : " + message);
+        messageInput.value = "";
+      });
+      socket.on("message", (message) => {
+        const p = document.createElement("p");
+        p.innerText = message;
+        chatbox.appendChild(p);
+      });
+    </script>
+  </body>
+</html>
